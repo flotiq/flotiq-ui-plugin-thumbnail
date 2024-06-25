@@ -4,7 +4,7 @@ import cssString from "inline:./styles/style.css";
 import { handleGridPlugin } from "./grid-renderers";
 import { handleManagePlugin } from "./manage-modal";
 
-registerFn(pluginInfo, (handler, client) => {
+registerFn(pluginInfo, (handler, client, globals) => {
   /**
    * Add plugin styles to the head of the document
    */
@@ -14,11 +14,12 @@ registerFn(pluginInfo, (handler, client) => {
     style.textContent = cssString;
     document.head.appendChild(style);
   }
+  const { getLanguage } = globals;
 
   handler.on("flotiq.grid.cell::render", (data) =>
-    handleGridPlugin(data, client, pluginInfo),
+    handleGridPlugin(data, client, pluginInfo, globals),
   );
-  handler.on("flotiq.plugins.manage::render", (data) =>
-    handleManagePlugin(data, pluginInfo),
+  handler.on("flotiq.plugins.manage::form-schema", (data) =>
+    handleManagePlugin(data, pluginInfo, getLanguage),
   );
 });

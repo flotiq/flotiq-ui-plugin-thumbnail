@@ -1,8 +1,29 @@
-@font-face {
-  font-family: "Roboto Mono";
-  src: url(./RobotoMono-Medium.ttf) format("truetype");
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin: 0 20px;
+  position: relative;
 }
 
-.plugin-name-cell-renderer {
-  font-family: "Roboto Mono", monospace;
+.image-name {
+  text-align: center;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.open-arrow {
+  background-image: url(../../images/arrow_up_right-icon.svg);
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 32px;
+  height: 32px;
+  background-color: rgb(59, 57, 83);
+  cursor: pointer;
+  background-size: 0.75rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
 }

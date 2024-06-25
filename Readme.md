@@ -1,6 +1,32 @@
 [[_TOC_]]
 
-# Plain JS Plugin
+# About plugin
+
+This plugin generates thumbnails instead of simple link icon on objects grids, thumbnails are clickable, and after click modal with bigger version is shown.
+
+## Plugin outcome
+
+The thumbnail is visible in grid:
+
+<img src=".docs/images/grid.png" alt="plugin-settings" width="700"/>
+
+And after clicking on it the modal is visible:
+
+<img src=".docs/images/modal.png" alt="plugin-settings" width="700"/>
+
+You can open the full image by clicking blue arrow in the modal.
+
+## Configuring plugin
+
+To manage a plugin, you must first add it to your plugins. Click the "+" icon to add the plugin to your library and click the "Manage" button. It will open the plugin settings.
+
+<img src=".docs/images/settings.png" alt="plugin-settings" width="700"/>
+
+Field descriptions:
+
+* `Content Type` - Defines the type of objects for which the thumbnails will be generated.
+
+# Development
 
 ## Quick start
 
