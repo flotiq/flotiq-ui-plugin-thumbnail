@@ -7,7 +7,7 @@
   "url": "https://localhost:3053/index.js",
   "permissions": [
     {
-      "ctdName": "*",
+      "ctdName": "_media",
       "canRead": true,
       "type": "CO"
     }

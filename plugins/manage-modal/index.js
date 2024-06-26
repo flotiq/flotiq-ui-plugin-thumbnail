@@ -2,7 +2,11 @@ import i18n from '../i18n';
 
 let configCache = null;
 
-export const handleManagePlugin = ({ plugin, contentTypes, modalInstance }, pluginInfo, getLanguage) => {
+export const handleManagePlugin = (
+  { plugin, contentTypes, modalInstance },
+  pluginInfo,
+  getLanguage,
+) => {
   if (plugin?.id !== pluginInfo.id) return null;
 
   if (configCache) return configCache;

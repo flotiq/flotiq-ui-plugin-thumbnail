@@ -2,11 +2,11 @@
 
 # About plugin
 
-This plugin generates thumbnails instead of simple link icon on objects grids, thumbnails are clickable, and after click modal with bigger version is shown.
+This plugin generates thumbnails instead of simple link icons on object grids. Thumbnails are clickable and after clicking, a modal with a bigger version is shown.
 
 ## Plugin outcome
 
-The thumbnail is visible in grid:
+The thumbnail is visible in the grid:
 
 <img src=".docs/images/grid.png" alt="plugin-settings" width="700"/>
 
@@ -14,7 +14,7 @@ And after clicking on it the modal is visible:
 
 <img src=".docs/images/modal.png" alt="plugin-settings" width="700"/>
 
-You can open the full image by clicking blue arrow in the modal.
+You can open the full image by clicking the blue arrow in the modal.
 
 ## Configuring plugin
 

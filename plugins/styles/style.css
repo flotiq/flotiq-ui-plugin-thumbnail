@@ -7,10 +7,22 @@
   position: relative;
 }
 
+@media (max-width: 639px) {
+  .thumbnails-plugin-image-container {
+    margin: 0;
+  }
+}
+
 .thumbnails-plugin-image-name {
   text-align: center;
   padding: 5px;
   font-weight: bold;
+}
+
+.thumbnails-plugin-image {
+  max-height: calc(100vh - 16rem);
+  width: fit-content;
+  margin: auto;
 }
 
 .thumbnails-plugin-open-arrow {
@@ -20,7 +32,7 @@
   right: 2px;
   width: 32px;
   height: 32px;
-  background-color: rgb(238 238 244); /* rgb(59, 57, 83);*/
+  background-color: rgb(238 238 244);
   cursor: pointer;
   background-size: 0.75rem;
   background-repeat: no-repeat;
