@@ -33,47 +33,26 @@ export const handleManagePlugin = ({ plugin, contentTypes, modalInstance }, plug
         {
           type: 'object',
           properties: {
-            settings: {
+            content_types: {
               type: 'array',
-              items: {
-                type: 'object',
-                required: ['content_types'],
-                properties: {
-                  content_types: {
-                    type: 'array',
-                  },
-                },
-              },
-              minItems: 1,
             },
           },
         },
       ],
-      required: [],
+      required: ['content_types'],
       additionalProperties: false,
     },
     metaDefinition: {
-      order: ['settings'],
+      order: ['content_types'],
       propertiesConfig: {
-        settings: {
-          items: {
-            order: ['content_types'],
-            propertiesConfig: {
-              content_types: {
-                label: i18n.t('ContentTypes'),
-                unique: false,
-                helpText: '',
-                inputType: 'select',
-                isMultiple: true,
-                useOptionsWithLabels: true,
-                optionsWithLabels: ctds,
-              },
-            },
-          },
-          label: i18n.t('Settings'),
+        content_types: {
+          label: i18n.t('ContentTypes'),
           unique: false,
           helpText: '',
-          inputType: 'object',
+          inputType: 'select',
+          isMultiple: true,
+          useOptionsWithLabels: true,
+          optionsWithLabels: ctds,
         },
       },
     },

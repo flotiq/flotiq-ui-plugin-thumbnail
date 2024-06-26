@@ -9,8 +9,8 @@ export function handleGridPlugin(
   global,
 ) {
   if (!["datasource"].includes(inputType)) return;
-  const settings = JSON.parse(global.getPluginSettings()).settings;
-  if (!settings[0].content_types.includes(contentObject.internal?.contentType)){
+  const settings = JSON.parse(global.getPluginSettings());
+  if (!settings?.content_types?.includes(contentObject.internal?.contentType)){
     return;
   }
   if(data.length > 1) {
@@ -20,6 +20,7 @@ export function handleGridPlugin(
   if (language !== i18n.language) {
     i18n.changeLanguage(language);
   }
+  console.log(client);
 
   const cacheKey = `${pluginInfo.id}-${contentObject.id}-${accessor}`;
 
@@ -54,23 +55,23 @@ export function handleGridPlugin(
       element.style.cursor = 'pointer';
       element.addEventListener('click', function() {
         const contentElement = document.createElement('div');
-        contentElement.className = 'image-container';
+        contentElement.className = 'thumbnails-plugin-image-container';
         const image = document.createElement('img');
         image.setAttribute(
           'src',
           client.getMediaUrl(
             objectData,
-            500,
-            800,
+            0,
+            0,
           ),
         );
         contentElement.appendChild(image);
         const imageName = document.createElement('p');
-        imageName.className = 'image-name';
+        imageName.className = 'thumbnails-plugin-image-name';
         imageName.textContent = objectData.fileName;
         contentElement.appendChild(imageName);
         const arrow = document.createElement('div');
-        arrow.className = 'open-arrow';
+        arrow.className = 'thumbnails-plugin-open-arrow';
         arrow.addEventListener('click', function() {
           window.open(client.getMediaUrl(
             objectData,
@@ -80,10 +81,6 @@ export function handleGridPlugin(
         }, false);
         contentElement.appendChild(arrow);
 
-
-        const idButton = document.createElement('button');
-        idButton.textContent = data;
-        idButton.style.color = 'green';
         global.openModal({
           title: '',
           size: 'lg',

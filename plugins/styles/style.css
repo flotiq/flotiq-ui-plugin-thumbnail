@@ -1,4 +1,4 @@
-.image-container {
+.thumbnails-plugin-image-container {
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -7,23 +7,27 @@
   position: relative;
 }
 
-.image-name {
+.thumbnails-plugin-image-name {
   text-align: center;
   padding: 5px;
   font-weight: bold;
 }
 
-.open-arrow {
+.thumbnails-plugin-open-arrow {
   background-image: url(../../images/arrow_up_right-icon.svg);
   position: absolute;
   top: 2px;
   right: 2px;
   width: 32px;
   height: 32px;
-  background-color: rgb(59, 57, 83);
+  background-color: rgb(238 238 244); /* rgb(59, 57, 83);*/
   cursor: pointer;
   background-size: 0.75rem;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 8px;
+}
+
+.mode-dark .thumbnails-plugin-open-arrow {
+  background-color: rgb(59, 57, 83);
 }
