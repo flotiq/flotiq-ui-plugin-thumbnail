@@ -20,7 +20,6 @@ export function handleGridPlugin(
   if (language !== i18n.language) {
     i18n.changeLanguage(language);
   }
-  console.log(client);
 
   const cacheKey = `${pluginInfo.id}-${contentObject.id}-${accessor}`;
 
