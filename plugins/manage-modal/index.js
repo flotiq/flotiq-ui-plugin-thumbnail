@@ -1,17 +1,68 @@
-import {
-  addElementToCache,
-  getCachedElement,
-} from "../../common/plugin-element-cache";
+import i18n from '../i18n';
 
-export const handleManagePlugin = ({ plugin }, pluginInfo) => {
-  const cacheKey = `${pluginInfo.id}-manage-render`;
-  let element = getCachedElement(cacheKey)?.element;
+let configCache = null;
 
-  if (!element) {
-    element = document.createElement("div");
-    element.textContent = `Plugin with id ${plugin.id} does not have any settings`;
+export const handleManagePlugin = (
+  { plugin, contentTypes, modalInstance },
+  pluginInfo,
+  getLanguage,
+) => {
+  if (plugin?.id !== pluginInfo.id) return null;
+
+  if (configCache) return configCache;
+
+  const ctds = (contentTypes || [])
+    .filter((ctd) => !ctd.internal || ctd.name === '_media')
+    .map(({ name, label }) => ({ value: name, label }));
+
+  const language = getLanguage();
+  if (language !== i18n.language) {
+    i18n.changeLanguage(language);
   }
 
-  addElementToCache(element, cacheKey);
-  return element;
+  configCache = {};
+
+  configCache.schema = {
+    id: pluginInfo.id,
+    name: 'thumbnails',
+    label: 'Thumbnails',
+    workflowId: 'generic',
+    internal: false,
+    schemaDefinition: {
+      type: 'object',
+      allOf: [
+        {
+          $ref: '#/components/schemas/AbstractContentTypeSchemaDefinition',
+        },
+        {
+          type: 'object',
+          properties: {
+            content_types: {
+              type: 'array',
+            },
+          },
+        },
+      ],
+      required: ['content_types'],
+      additionalProperties: false,
+    },
+    metaDefinition: {
+      order: ['content_types'],
+      propertiesConfig: {
+        content_types: {
+          label: i18n.t('ContentTypes'),
+          unique: false,
+          helpText: '',
+          inputType: 'select',
+          isMultiple: true,
+          useOptionsWithLabels: true,
+          optionsWithLabels: ctds,
+        },
+      },
+    },
+  };
+
+  modalInstance.promise.then(() => (configCache = null));
+
+  return configCache;
 };
