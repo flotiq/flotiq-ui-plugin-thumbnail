@@ -1,3 +1,12 @@
+.thumbnails-plugin-thumbnail-container {
+  position: absolute;
+  top: .2rem;
+  left: .2rem;
+  right: .2rem;
+  display: flex;
+  justify-content: center;
+}
+
 .thumbnails-plugin-image-container {
   display: flex;
   flex-direction: column;
