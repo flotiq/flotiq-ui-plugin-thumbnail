@@ -26,9 +26,11 @@ export function handleGridPlugin(
 
   const cacheKey = `${pluginInfo.id}-${contentObject.id}-${accessor}`;
 
-  let element = getCachedElement(cacheKey)?.element;
-  if (!element) {
-    element = document.createElement('img');
+  let parentElement = getCachedElement(cacheKey)?.element;
+  if (!parentElement) {
+    parentElement = document.createElement('div');
+    parentElement.className = 'thumbnails-plugin-thumbnail-container'
+    const element = document.createElement('img');
     const imageRelation = data[0];
     if (!imageRelation?.dataUrl?.includes('_media')) {
       return;
@@ -44,7 +46,11 @@ export function handleGridPlugin(
         return;
       }
 
-      element.setAttribute('src', client.getMediaUrl(objectData, 40, 80));
+      const ratio = objectData.width / objectData.height;
+      const height = 40;
+      const width = Math.floor(40 * ratio);
+
+      element.setAttribute('src', client.getMediaUrl(objectData, height, width));
 
       element.style.borderRadius = '5px';
       element.style.cursor = 'pointer';
@@ -88,9 +94,10 @@ export function handleGridPlugin(
         false,
       );
     });
+    parentElement.appendChild(element);
   }
 
-  addElementToCache(element, cacheKey);
+  addElementToCache(parentElement, cacheKey);
 
-  return element;
+  return parentElement;
 }
