@@ -5,6 +5,9 @@
   right: .2rem;
   display: flex;
   justify-content: center;
+  img {
+    max-height: 40px;
+  }
 }
 
 .thumbnails-plugin-image-container {
