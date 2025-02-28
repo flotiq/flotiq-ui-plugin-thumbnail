@@ -2,7 +2,7 @@
   "id": "flotiq.thumbnail",
   "name": "Thumbnails",
   "description": "Plugin changing single media relation into clickable thumbnails in grids",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": "https://github.com/flotiq/flotiq-ui-plugin-thumbnail",
   "url": "https://localhost:3053/index.js",
   "permissions": [

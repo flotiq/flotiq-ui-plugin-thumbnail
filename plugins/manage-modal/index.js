@@ -26,7 +26,6 @@ export const handleManagePlugin = (
     id: pluginInfo.id,
     name: 'thumbnails',
     label: 'Thumbnails',
-    workflowId: 'generic',
     internal: false,
     schemaDefinition: {
       type: 'object',
