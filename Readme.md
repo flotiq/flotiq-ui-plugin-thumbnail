@@ -1,4 +1,6 @@
-[[_TOC_]]
+<a href="https://flotiq.com/">
+    <img src="https://editor.flotiq.com/fonts/fq-logo.svg" alt="Flotiq logo" title="Flotiq" align="right" height="60" />
+</a>
 
 # About plugin
 
@@ -80,3 +82,9 @@ The plugins are built into a single `dist/index.js` file. The manifest is copied
 1. Open Flotiq editor
 2. Add a new plugin and paste the URL to the hosted `plugin-manifest.json` file
 3. Navigate to the view that is modified by the plugin
+
+## Collaborating
+
+If you wish to talk with us about this project, feel free to hop on our [![Discord Chat](https://img.shields.io/discord/682699728454025410.svg)](https://discord.gg/FwXcHnX).
+
+If you found a bug, please report it in [issues](https://github.com/flotiq/flotiq-ui-plugin-custom-links/issues).
