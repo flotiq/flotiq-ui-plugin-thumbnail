@@ -11,7 +11,7 @@
     "esbuild": "^0.21.4",
     "esbuild-plugin-eslint": "^0.3.12",
     "esbuild-plugin-inline-import": "^1.0.4",
-    "eslint": "^8.57.0",
+    "eslint": "^9.28.0",
     "eslint-config-prettier": "^8.10.0",
     "postcss": "^8.4.38",
     "postcss-url": "^10.1.3",
