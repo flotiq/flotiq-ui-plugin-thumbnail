@@ -29,7 +29,7 @@ export function handleGridPlugin(
   let parentElement = getCachedElement(cacheKey)?.element;
   if (!parentElement) {
     parentElement = document.createElement('div');
-    parentElement.className = 'thumbnails-plugin-thumbnail-container'
+    parentElement.className = 'thumbnails-plugin-thumbnail-container';
     const element = document.createElement('img');
     const imageRelation = data[0];
     if (!imageRelation?.dataUrl?.includes('_media')) {
@@ -50,13 +50,19 @@ export function handleGridPlugin(
       const height = 40;
       const width = Math.floor(40 * ratio);
 
-      element.setAttribute('src', client.getMediaUrl(objectData, height, width));
+      element.setAttribute(
+        'src',
+        client.getMediaUrl(objectData, height, width),
+      );
 
       element.style.borderRadius = '5px';
       element.style.cursor = 'pointer';
       element.addEventListener(
         'click',
-        function () {
+        function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+
           const contentElement = document.createElement('div');
           contentElement.className = 'thumbnails-plugin-image-container';
           const image = document.createElement('img');
