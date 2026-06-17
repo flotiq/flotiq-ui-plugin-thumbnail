@@ -4,6 +4,8 @@
 
 # About plugin
 
+This plugin is archived because its functionality has been moved to Flotiq's core. You can still use it as an inspiration for your own plugins.
+
 This plugin generates thumbnails instead of simple link icons on object grids. Thumbnails are clickable and after clicking, a modal with a bigger version is shown.
 
 ## Plugin outcome
